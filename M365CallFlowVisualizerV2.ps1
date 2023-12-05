@@ -411,6 +411,7 @@ param(
     [Parameter(Mandatory = $false)][String]$EntraTenantIdFileName = "m365-cfv-tenant-id",
     [Parameter(Mandatory = $false)][String]$EntraApplicationIdFileName = "m365-cfv-app-id",
     [Parameter(Mandatory = $false)][String]$EntraClientSecretFileName = "m365-cfv-client-secret"
+    [Parameter(Mandatory = $false)][String]$ClientLogoPath
 )
 
 $ErrorActionPreference = "Continue"
@@ -529,6 +530,10 @@ $allMermaidNodes = @()
 $allSubgraphs = @()
 $audioFileNames = @()
 $ttsGreetings = @()
+
+# Process HTML template
+$htmlContent = Get-Content "HtmlTemplate.html" -Raw
+$updatedHtmlContent = $htmlContent -Replace '{{ClientLogo}}', $ClientLogoPath
 
 # Get all voice apps and resource accounts from external function
 . Get-AllVoiceAppsAndResourceAccounts
