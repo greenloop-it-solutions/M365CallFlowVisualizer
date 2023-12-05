@@ -534,6 +534,7 @@ $ttsGreetings = @()
 # Process HTML template
 $htmlContent = Get-Content "HtmlTemplate.html" -Raw
 $updatedHtmlContent = $htmlContent -Replace '{{ClientLogo}}', $ClientLogoPath
+Set-Content "HtmlTemplate.html" -Value $updatedHtmlContent
 
 # Get all voice apps and resource accounts from external function
 . Get-AllVoiceAppsAndResourceAccounts
@@ -5568,3 +5569,7 @@ if ($ExportHtml -eq $true) {
 
 }
 
+# Restore HTML template
+$htmlContent = Get-Content "HtmlTemplate.html" -Raw
+$updatedHtmlContent = $htmlContent -Replace $ClientLogoPath, '{{ClientLogo}}'
+Set-Content "HtmlTemplate.html" -Value $updatedHtmlContent
