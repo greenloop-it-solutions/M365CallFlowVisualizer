@@ -410,7 +410,7 @@ param(
     [Parameter(Mandatory = $false)][Switch]$ConnectWithServicePrincipal,
     [Parameter(Mandatory = $false)][String]$EntraTenantIdFileName = "m365-cfv-tenant-id",
     [Parameter(Mandatory = $false)][String]$EntraApplicationIdFileName = "m365-cfv-app-id",
-    [Parameter(Mandatory = $false)][String]$EntraClientSecretFileName = "m365-cfv-client-secret"
+    [Parameter(Mandatory = $false)][String]$EntraClientSecretFileName = "m365-cfv-client-secret",
     [Parameter(Mandatory = $false)][String]$ClientLogoPath
 )
 
